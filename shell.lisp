@@ -85,7 +85,7 @@
     (when in
       (loop for line = (read-line in nil)
             while line do (format t "~a~%" line))
-      (close in)))x)
+      (close in))))
 
 (defun proc-new ((m mastermind))
   "Performs the rest of the command 'NEW', which sets the *gameOver* variable
