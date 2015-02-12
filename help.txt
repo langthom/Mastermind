@@ -1,0 +1,9 @@
+available commands:
+
+  NEW            Starts a new game with the same starter.
+  SWITCH         Starts a new game with the opposite starter.
+  MOVE a b c d   Performs a human move with colors <a> <b> <c> <d>.
+  EVAL b w       Evaluates the human rating of black and white
+                 pins <b> and <w> and calculates the next machine move.
+  HELP           Displays this message
+  QUIT           Exits the game.
