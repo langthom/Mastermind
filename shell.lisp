@@ -57,7 +57,7 @@
         ((string-equal "quit"   input) (setf *done* t))
         ((string-equal "help"   input) (print-help))
         ((string-equal "new"    input) (progn (setf *game* (newMastermind)) (proc-new *game*)))
-        ((string-equal "switch" input) (proc-switch))
+        ((string-equal "switch" input) (progn (switch-guesser *game*) (proc-new *game*)))
         ((starts-with-prefix input "move") (proc-move input))
         ((starts-with-prefix input "eval") (proc-eval input))
         (t (merror "Unknown command"))))
@@ -94,12 +94,6 @@
   (if (isMachineGuessing *game*)
       (let ((machineTry (machineMove *game*)))
         (format t "machine guess: ~a~%" machineTry))))
-
-(defun proc-switch ()
-  "Performs the 'SWITCH' command by switching the guessers and starting a new
-   game of Mastermind."
-  (switch-guesser *game*)
-  (proc-new *game*))
 
 (defun split-into-tokens (input)
   "Splits up the string 'input' into a list of tokens using blank spaces as the
